@@ -3,24 +3,26 @@ import React, { useEffect, useState } from "react";
 const Navbar = () => {
   const NavItems = ["Home", "About", "Services", "Contact", "Services"];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        document.body.style.backgroundColor("green");
-      } else {
-        document.body.style.backgroundColor("blue");
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY > 0) {
+  //       document.body.style.backgroundColor("green");
+  //     } else {
+  //       document.body.style.backgroundColor("blue");
+  //     }
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
   return (
     <>
       <div className="flex justify-evenly py-3 bg-blue-600">
         <div className="flex items-center justify-center">
-          <h1 className="font-bold text-2xl cursor-pointer text-white">Logo</h1>
+          <h1 className="font-bold text-2xl cursor-pointer text-white">
+            Movies World
+          </h1>
         </div>
         <div className="flex items-center">
           <ul className="flex gap-8 font-bold text-white">
