@@ -1,9 +1,11 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import MovieCompHeader from "./MovieComp/MovieCompHeader";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MovieCompBody from "./MovieComp/MovieCompBody";
 import useLoadingStore from "./store/useLoadingStore";
+import MovieMainComponent from "./MovieComp/MovieMainComponent";
+import MovieDetails from "./MovieComp/MovieDetails";
 
 function App() {
   const loading = useLoadingStore((state) => state.loading);
@@ -16,8 +18,14 @@ function App() {
         </div>
       )}
       <Navbar />
-      <MovieCompHeader />
-      <MovieCompBody />
+      {/* <MovieMainComponent /> */}
+      {/* <MovieCompBody /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MovieMainComponent />} />
+          <Route path="/movie/:id" element={<MovieDetails />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
