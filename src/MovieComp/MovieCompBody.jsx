@@ -9,14 +9,17 @@ const MovieCompBody = () => {
   const [movies, setMovies] = useState([]);
   const [inputval, setInputVal] = useState("");
   const [visibleCount, setVisibleCount] = useState(9);
-  const API_KEY = "3786da60f8b051b02ff564459f8d1c3d";
+
+  //api key and api url
+  const API_KEY = import.meta.env.VITE_API_KEY;
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
     const fetchMovies = async () => {
       setLoading(false);
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+          fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}`)
         );
         setMovies(response.data.results);
       } catch (err) {
@@ -55,7 +58,7 @@ const MovieCompBody = () => {
       </div>
 
       {/* Movie Grid */}
-      <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-6">
         {visibleMovies.length > 0 ? (
           visibleMovies.map((movie) => (
             <MovieCard
