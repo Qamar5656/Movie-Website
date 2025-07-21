@@ -18,8 +18,6 @@ function App() {
         </div>
       )}
       <Navbar />
-      {/* <MovieMainComponent /> */}
-      {/* <MovieCompBody /> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MovieMainComponent />} />
