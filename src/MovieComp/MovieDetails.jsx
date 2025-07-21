@@ -37,12 +37,14 @@ const MovieDetails = () => {
 
   return (
     <div className="container p-5">
-      <h1 className="text-3xl font-bold mb-4">{movie.title}</h1>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title}
-        className="mb-4"
-      />
+      <h1 className="text-3xl font-bold mb-4 text-center">{movie.title}</h1>
+      <div className="flex items-center justify-center">
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+          className=" my-4 w-74 rounded-2xl h-64"
+        />
+      </div>
       <p>
         <strong>Rating:</strong> {movie.vote_average}
       </p>
