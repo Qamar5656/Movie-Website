@@ -17,12 +17,6 @@ Coming Soon (Netlify link)
 - 🎨 **Tailwind CSS** – Fully responsive design across desktop, tablet, and mobile
 - 📁 **Vite** – Lightning-fast build and dev server for React
 
-## 📷 Screenshots
-
-| Desktop | Mobile |
-|--------|--------|
-| ![desktop](./screenshots/desktop.png) | ![mobile](./screenshots/mobile.png) |
-
 ## 🚀 Technologies Used
 
 - React
