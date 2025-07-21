@@ -35,8 +35,10 @@ const Navbar = () => {
           </button>
         </div>
         {/* Toggle Button for buttons */}
-        <div className="flex md:hidden text-white font-bold items-center cursor-pointer text-3xl">
-          <button onClick={handleIcon}>{menu ? "✖" : "☰"}</button>
+        <div className="flex md:hidden text-white font-bold items-center cursor-pointer ">
+          <button onClick={handleIcon}>
+            {menu ? <span className="text-white text-3xl">&times;</span> : "☰"}
+          </button>
         </div>
       </div>
       <div>
@@ -44,12 +46,13 @@ const Navbar = () => {
         <div>
           <ul
             className={`
-        md:hidden z-50 
-      bg-blue-600 text-white font-bold 
-      flex flex-col items-center gap-3 py-4 
-      transform transition-transform duration-400 ease-in-out
-      ${menu ? "translate-x-0" : "-translate-x-full"}
-    `}
+    md:hidden z-50 
+    bg-blue-600 text-white font-bold 
+    flex flex-col items-center gap-3 py-4 
+    transform transition-transform duration-400 ease-in-out
+    ${menu ? "translate-x-0" : "-translate-x-full"}
+    fixed top-14 left-0 w-full
+  `}
           >
             {NavItems.map((value, index) => (
               <li
