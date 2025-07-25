@@ -58,7 +58,7 @@ const MovieMainComponent = () => {
   const visibleMovies = filteredMovies.slice(0, visibleCount);
 
   return (
-    <div className="container py-7">
+    <div className="container py-7 pt-24">
       <h2 className="pr-4 text-center font-bold text-xl py-3">
         Search Your Movie
       </h2>
@@ -97,7 +97,7 @@ const MovieMainComponent = () => {
       {filteredMovies.length > visibleCount && (
         <div className="flex items-center justify-center mt-6">
           <button
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-xl"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-xl cursor-pointer"
             onClick={() => setVisibleCount(filteredMovies.length)}
           >
             Load More
