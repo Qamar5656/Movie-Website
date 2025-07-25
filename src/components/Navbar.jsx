@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import ScrollToTopButton from "./ScrollToTop";
 
 const Navbar = () => {
   const NavItems = ["Home", "About", "Services", "Contact"];
@@ -11,7 +12,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-evenly py-3 bg-blue-600">
+      <div className="fixed w-full flex justify-evenly py-3 bg-blue-600">
         <div className="flex items-center justify-center">
           <h1 className="font-bold text-2xl cursor-pointer text-white">
             Movies World
@@ -42,6 +43,7 @@ const Navbar = () => {
         </div>
       </div>
       <div>
+        <ScrollToTopButton />
         {/* Mobile menu list items for small devices */}
         <div>
           <ul
