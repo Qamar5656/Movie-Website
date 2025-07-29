@@ -7,6 +7,8 @@ const MovieCard = ({
   description,
   release_date,
   handleClick,
+  handleUpdate,
+  handleDelete,
 }) => {
   const stars = Math.round(rating); // Round to nearest integer (e.g. 7.8 → 8)
   const [wordsLen, setWordsLen] = useState(150);
@@ -23,9 +25,6 @@ const MovieCard = ({
       role="button"
       tabIndex={0}
       onClick={handleClick}
-      onKeyPress={(e) => {
-        if (e.key === "Enter") handleClick();
-      }}
       className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-xl"
     >
       <img src={img} alt={title} className="w-full h-64 object-cover" />
@@ -52,6 +51,24 @@ const MovieCard = ({
             </button>
           )}
         </p>
+        <button
+          onClick={(e) => {
+            e.stopPropagation(); // ⛔ Stop bubbling up to the card's onClick
+            handleDelete(); // ✅ Call the delete function
+          }}
+          className="cursor-pointer text-red-500 hover:text-red-700 font-bold mt-2 border border-red-500 px-2 py-1 rounded"
+        >
+          Delete{" "}
+        </button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleUpdate();
+          }}
+          className="cursor-pointer text-red-500 hover:text-red-700 font-bold mt-2 border border-red-500 px-2 py-1 rounded"
+        >
+          Update{" "}
+        </button>
       </div>
     </div>
   );
