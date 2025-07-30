@@ -12,6 +12,8 @@ const MovieCard = ({
 }) => {
   const stars = Math.round(rating); // Round to nearest integer (e.g. 7.8 → 8)
   const [wordsLen, setWordsLen] = useState(150);
+  const [editMode, setEditMode] = useState(false);
+  const [newTitle, setNewTitle] = useState(title);
 
   const handleWordsDisplay = (e) => {
     e.stopPropagation(); // Prevent triggering card click
@@ -29,7 +31,19 @@ const MovieCard = ({
     >
       <img src={img} alt={title} className="w-full h-64 object-cover" />
       <div className="p-4">
-        <p className="font-bold text-lg">{title}</p>
+        <p className="font-bold text-lg">
+          {editMode ? (
+            <input
+              type="text"
+              value={newTitle}
+              onChange={(e) => setNewTitle(e.target.value)}
+              className="border rounded p-1 w-full mb-2"
+              onClick={(e) => e.stopPropagation()}
+            />
+          ) : (
+            <p className="font-bold text-lg">{title}</p>
+          )}
+        </p>
         <div className="text-yellow-500 text-sm mb-1">
           {Array(stars)
             .fill("⭐")
@@ -53,21 +67,24 @@ const MovieCard = ({
         </p>
         <button
           onClick={(e) => {
-            e.stopPropagation(); // ⛔ Stop bubbling up to the card's onClick
-            handleDelete(); // ✅ Call the delete function
+            e.stopPropagation();
+            handleDelete();
           }}
           className="cursor-pointer text-red-500 hover:text-red-700 font-bold mt-2 border border-red-500 px-2 py-1 rounded"
         >
-          Delete{" "}
+          Delete
         </button>
+
+        {/* Action Buttons */}
         <button
           onClick={(e) => {
             e.stopPropagation();
-            handleUpdate();
+            setEditMode(!editMode);
+            if (editMode) handleUpdate(newTitle);
           }}
-          className="cursor-pointer text-red-500 hover:text-red-700 font-bold mt-2 border border-red-500 px-2 py-1 rounded"
+          className="text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white font-bold px-2 py-1 rounded mx-4 cursor-pointer"
         >
-          Update{" "}
+          {editMode ? "Save" : "Edit"}
         </button>
       </div>
     </div>
