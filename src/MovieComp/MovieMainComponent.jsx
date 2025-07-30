@@ -57,6 +57,13 @@ const MovieMainComponent = () => {
   // Show only visibleCount number of filtered movies
   const visibleMovies = filteredMovies.slice(0, visibleCount);
 
+  //handle delete functionality
+  const handleDelete = (movieId) => {
+    setMovies((prevMovies) =>
+      prevMovies.filter((movie) => movie.id !== movieId)
+    );
+  };
+
   return (
     <div className="container py-7 pt-24">
       <h2 className="pr-4 text-center font-bold text-xl py-3">
@@ -84,6 +91,7 @@ const MovieMainComponent = () => {
               release_date={movie.release_date}
               description={movie.overview}
               handleClick={() => handleCardClick(movie.id)}
+              handleDelete={() => handleDelete(movie.id)}
             />
           ))
         ) : (
