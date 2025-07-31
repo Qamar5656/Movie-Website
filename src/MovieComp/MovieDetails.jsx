@@ -101,7 +101,7 @@ const MovieDetails = () => {
         <p>
           <strong>Release Date:</strong> {movie.release_date}
         </p>
-        <p>
+        <p className="pb-5">
           <strong>Overview:</strong> {movie.overview}
         </p>
       </div>
