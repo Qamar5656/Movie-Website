@@ -12,6 +12,7 @@ const MovieDetails = () => {
   const API_KEY = import.meta.env.VITE_API_KEY;
   const BASE_URL = import.meta.env.VITE_BASE_URL;
 
+  //to fetch movies data
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
@@ -26,6 +27,7 @@ const MovieDetails = () => {
       }
     };
 
+    //to fetch movies images for image gallery
     const fetchMovieImages = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/movie/${id}/images`, {
