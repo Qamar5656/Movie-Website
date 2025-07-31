@@ -95,7 +95,7 @@ const MovieDetails = () => {
           /> */}
         </div>
 
-        <p>
+        <p className="pt-6">
           <strong>Rating:</strong> {movie.vote_average}
         </p>
         <p>
