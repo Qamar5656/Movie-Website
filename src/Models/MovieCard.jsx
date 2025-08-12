@@ -84,7 +84,7 @@ const MovieCard = ({
           }}
           className="text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white font-bold px-2 py-1 rounded mx-4 cursor-pointer"
         >
-          {editMode ? "Save" : "Edit"}
+          {editMode ? "Save" : "Update"}
         </button>
       </div>
     </div>
